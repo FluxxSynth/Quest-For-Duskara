@@ -19,6 +19,11 @@ jobs:
           xcodebuild -version
           sw_vers
 
+      - name: Install Metal toolchain
+        run: |
+          xcodebuild -downloadComponent MetalToolchain || true
+          xcrun -f metal || xcrun -f metal || true
+
       - name: Build
         run: |
           xcodebuild \
